@@ -109,24 +109,9 @@ export class TokenNode extends TextNode {
 
   exportDOM(editor: LexicalEditor): DOMExportOutput {
     const { element } = super.exportDOM(editor);
-    const theme = TokenNode.defaultTheme;
 
     const token = document.createElement("span");
     token.setAttribute("class", "lexical-token");
-    token.setAttribute(
-      "style",
-      `
-        color: ${theme.textColor};
-        background-color: ${theme.backgroundColor};
-        border: 1px solid ${theme.borderColor};
-        border-radius: 6px;
-        padding: 0 6px;
-        display: inline-block;
-        font-weight: 500;
-        margin-right: 0.1px;
-        cursor: pointer;
-      `.trim()
-    );
 
     if (element !== null) {
       token.textContent = element.textContent;
